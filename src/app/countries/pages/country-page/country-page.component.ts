@@ -17,7 +17,7 @@ export class CountryPageComponent implements OnInit{
     private router: Router
   ){}
 
-  country: Country[] = [];
+  country?: Country;
 
     ngOnInit(): void {
       this.activedRoute.params
@@ -28,7 +28,7 @@ export class CountryPageComponent implements OnInit{
         if(!country) {
           return this.router.navigateByUrl('');
         }
-        return;
+        return this.country = country;
       })
     }
 }

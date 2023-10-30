@@ -15,9 +15,14 @@ export class ByCapitalPageComponent {
   ){}
 
   countries: Country[] = [];
+  public isLoading: boolean = false;
 
   byCapital(term: string){
+    this.isLoading = true;
     this.countriesService.searchCapital(term)
-    .subscribe(countries=> this.countries = countries);
+    .subscribe(countries=> {
+      this.countries = countries;
+      this.isLoading = false;
+    });
   }
 }
